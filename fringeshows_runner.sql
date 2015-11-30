@@ -1,0 +1,1 @@
+select names from users;
