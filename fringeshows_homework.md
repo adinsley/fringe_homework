@@ -93,6 +93,8 @@ PART 1 -------------------------------------------
     fringe_shows=# INSERT into shows_users (show_id, user_id) VALUES (12, 23);
     INSERT 0 1
 
+    also INSERT into shows_users (show_id, users_id) VALUES (SELECT show_id FROM shows where name = 'Two girls, one cup of comedy', SELECT user_id FROM users where name = 'Valerie Gibson')
+
 
 6. Updates the name of the "Val Gibson" user to be "Valerie Gibson".
     
@@ -135,6 +137,10 @@ PART 1 -------------------------------------------
 
     fringe_shows=# DELETE from shows_users WHERE user_id = 23;
     DELETE 1
+
+    Also could use
+
+    DELETE from shows_users where user_id NOT IN (SELECT id FROM users)
 
 SECTION 2-------------------------------------------------------------------------------
 
